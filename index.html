@@ -21,6 +21,8 @@
         <div class="column">
             <!--Header-->
             <h1>Mars</h1>
+            <input class="input" type="text" id="search" placeholder="Text input">
+            <button class="button is-link" id="location">Submit</button>
         </div>
         <div class="columns">
             <!-- 5 Day Forecast Section-->
@@ -52,8 +54,8 @@
         </div>
 
         <div class="columns" id="current-weather">
-            <div class="column is-one-fifth"></div>
-            <div class="column is-one-fifth"></div>
+            <div class="column is-one-fifth" id="temp"></div>
+            <div class="column is-one-fifth" id="wind"></div>
             <div class="column is-one-fifth"></div>
             <div class="column is-one-fifth"></div>
             <div class="column is-one-fifth"></div>
@@ -75,5 +77,6 @@
     </section>
 
     <script src="./assets/js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 </html>
