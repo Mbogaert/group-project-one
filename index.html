@@ -12,36 +12,43 @@
 <body>
     <header class="header-bar">
         <div class="column is-full" id="navbar">
-            Martian Weather vs Earthling Weather
+            <h1>Martian Weather <p class="vs">VS</p> Earthling Weather</h1>
         </div>
     </header>
 
-    <section class="column">
+    <section class="column" class="forecast-card">
         <!-- Mars Weather-->
         <div class="column">
             <!--Header-->
-            <h1>Mars</h1>
-            <input class="input" type="text" id="search" placeholder="Text input">
+            <h1 class="is-size-1">Mars</h1>
+            <input class="input"type="text" id="search" placeholder="Text input">
             <button class="button is-link" id="location">Submit</button>
         </div>
         <div class="columns">
             <!-- 5 Day Forecast Section-->
-            <div class="column is-one-fifth" id="forecast-card">Monday</div>
+            <div class="column is-one-fifth" id="forecast-card">
+                <p>Monday </p>
+            </div>
 
-            <div class="column is-one-fifth" id="forecast-card">Tuesday</div>
-
-            <div class="column is-one-fifth" id="forecast-card">Wednesday</div>
-
-            <div class="column is-one-fifth" id="forecast-card">Thursday</div>
-
-            <div class="column is-one-fifth" id="forecast-card">Friday</div>
+            <div class="column is-one-fifth" id="forecast-card">
+                <p>Tuesday </p>
+            </div>
+            <div class="column is-one-fifth" id="forecast-card">
+                <p>Wednesday </p>
+            </div>
+            <div class="column is-one-fifth" id="forecast-card">
+                <p>Thursday </p>
+            </div>
+            <div class="column is-one-fifth" id="forecast-card">
+                <p>Friday </p>
+            </div>
         </div>
-        <div class="columns" id="photo">
+        <div class="columns" id="photo" id="forecast-card">
             <div class="column is-half">
-                <img id="photoOne" src="./assets/images/CuriosityRover1.jpg" alt="">
+                <img  class="photoOne"src="./assets/images/CuriosityRover1.jpg" alt="Cool pic">
             </div>
             <div class="column is-half">
-                <img id="photoTwo" src="./assets/images/CuriosityRover1.jpg" alt="">
+                <img class="photoTwo" src="./assets/images/CuriosityRover1.jpg" alt="Cool mars pic">
             </div>
         </div>
     </section>
@@ -50,28 +57,28 @@
         <!-- Mars Weather-->
         <div class="column">
             <!--Header-->
-            <h1>Earth</h1>
+            <h1 class="is-size-1">Earth</h1>
         </div>
 
-        <div class="columns" id="current-weather">
-            <div class="column is-one-fifth" id="temp"></div>
-            <div class="column is-one-fifth" id="wind"></div>
+        <div class="columns" id="current-weather" id="earth">
             <div class="column is-one-fifth"></div>
+            <div class="column is-one-fifth"id="temp"></div>
+            <div class="column is-one-fifth"id="wind"></div>
             <div class="column is-one-fifth"></div>
             <div class="column is-one-fifth"></div>
         </div>
 
-        <div class="columns">
+        <div class="columns" class="earth">
             <!-- 5 Day Forecast Section-->
-            <div class="column is-one-fifth" id="forecast-card">Monday</div>
+            <div class="column is-one-fifth" id="earth">Monday</div>
 
-            <div class="column is-one-fifth" id="forecast-card">Tuesday</div>
+            <div class="column is-one-fifth" id="earth">Tuesday</div>
 
-            <div class="column is-one-fifth" id="forecast-card">Wednesday</div>
+            <div class="column is-one-fifth" id="earth">Wednesday</div>
 
-            <div class="column is-one-fifth" id="forecast-card">Thursday</div>
+            <div class="column is-one-fifth" id="earth">Thursday</div>
 
-            <div class="column is-one-fifth" id="forecast-card">Friday</div>
+            <div class="column is-one-fifth" id="earth">Friday</div>
         </div>
 
     </section>
