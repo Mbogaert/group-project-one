@@ -50,3 +50,13 @@ img {
 p {
     text-align: left;
 }
+
+#earth {
+    background-color: rgb(10, 102, 10);
+    width: 318px;
+    height: 100px;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
