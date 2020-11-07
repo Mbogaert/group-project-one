@@ -10,71 +10,162 @@
 </head>
 
 <body>
-<header class="header-bar">
-    <div class="column is-full" id="navbar">
-        Martian Weather vs Earthling Weather
-    </div>
-</header>
-
-<section class="column"> <!-- Mars Weather-->
-    <div class="column"> <!--Header-->
-        <h1>Mars</h1>
-    </div>
-   <div class="columns">
-        <!-- 5 Day Forecast Section-->
-        <div class="column is-one-fifth" id="forecast-card1">
-            <p>
-                
-            </p>
+    <header class="header-bar">
+        <div class="column is-full" id="navbar">
+            <h1>Martian Weather <p class="vs">VS</p> Earthling Weather</h1>
         </div>
-        
-        <div class="column is-one-fifth" id="forecast-card2"></div>
+    </header>
 
-        <div class="column is-one-fifth" id="forecast-card3"></div>
-
-        <div class="column is-one-fifth" id="forecast-card4"></div>
-
-        <div class="column is-one-fifth" id="forecast-card5"></div>
-    </div> 
-    <div class="columns" id="photo">
-        <div class="column is-half">
-            <img src="./assets/images/CuriosityRover1.jpg" alt="">
+    <section class="column" class="forecast-card">
+        <!-- Mars Weather-->
+        <div class="column">
+            <!--Header-->
+            <h1 class="is-size-1">Mars</h1>
+            <input class="input" type="text" id="search" placeholder="Text input">
+            <button class="button is-link" id="location">Submit</button>
         </div>
-        <div class="column is-half">
-            <img src="./assets/images/CuriosityRover1.jpg" alt="">
+        <div class="columns">
+            <!-- 5 Day Forecast Section-->
+            <div class="column is-one-fifth" id="forecast-card">
+                <ul>
+                    <li id="sol">
+                        
+                    </li>
+                    <li id="date">
+
+                    </li>
+                    <li id="high">
+                        
+                    </li>
+                    <li id="low">
+
+                    </li>
+                    <li id="wind-speed">
+
+                    </li>
+                </ul>
+            </div>
+            <div class="column is-one-fifth" id="forecast-card">
+                <ul>
+                    <li id="sol2">
+                        
+                    </li>
+                    <li id="date2">
+
+                    </li>
+                    <li id="high2">
+                        
+                    </li>
+                    <li id="low2">
+
+                    </li>
+                    <li id="wind-speed2">
+
+                    </li>
+                </ul>
+            </div>
+            <div class="column is-one-fifth" id="forecast-card">
+                <ul>
+                    <li id="sol3">
+                        
+                    </li>
+                    <li id="date3">
+
+                    </li>
+                    <li id="high3">
+                        
+                    </li>
+                    <li id="low3">
+
+                    </li>
+                    <li id="wind-speed3">
+
+                    </li>
+                </ul>
+            </div>
+            <div class="column is-one-fifth" id="forecast-card">
+                <ul>
+                    <li id="sol4">
+                        
+                    </li>
+                    <li id="date4">
+
+                    </li>
+                    <li id="high4">
+                        
+                    </li>
+                    <li id="low4">
+
+                    </li>
+                    <li id="wind-speed4">
+
+                    </li>
+                </ul>
+            </div>
+            <div class="column is-one-fifth" id="forecast-card">
+                <ul>
+                    <li id="sol5">
+                        
+                    </li>
+                    <li id="date5">
+
+                    </li>
+                    <li id="high5">
+                        
+                    </li>
+                    <li id="low5">
+
+                    </li>
+                    <li id="wind-speed5">
+
+                    </li>
+                </ul>
+            </div>
+
+           
         </div>
-    </div>
-</section>
+        <div class="columns" id="photo" id="forecast-card">
+            <div class="column is-half"
+       
+                <img  id="photoOne"src="./assets/images/CuriosityRover1.jpg" alt="Cool pic">
+            </div>
+            <div class="column is-half">
+                <img id="photoTwo" src="./assets/images/CuriosityRover1.jpg" alt="Cool mars pic">
+            </div>
+        </div>
+    </section>
 
-<section class="column">
-     <!-- Mars Weather-->
-    <div class="column"> <!--Header-->
-        <h1>Earth</h1>
-    </div>
+    <section class="column">
+        <!-- Mars Weather-->
+        <div class="column">
+            <!--Header-->
+            <h1 class="is-size-1">Earth</h1>
+        </div>
 
-    <div class="columns" id="current-weather">
-        <div class="column is-one-fifth"></div>
-        <div class="column is-one-fifth"></div>
-        <div class="column is-one-fifth"></div>
-        <div class="column is-one-fifth"></div>
-        <div class="column is-one-fifth"></div>
-    </div>
+        <div class="columns" id="current-weather" id="earth">
+            <div class="column is-one-fifth" id="city"></div>
+            <div class="column is-one-fifth" id="temp"></div>
+            <div class="column is-one-fifth" id="wind"></div>
+            <div class="column is-one-fifth"></div>
+            <div class="column is-one-fifth"></div>
+        </div>
 
-   <div class="columns">
-        <!-- 5 Day Forecast Section-->
-        <div class="column is-one-fifth" id="forecast-card">Monday</div>
-        
-        <div class="column is-one-fifth" id="forecast-card">Tuesday</div>
+        <div class="columns" class="earth">
+            <!-- 5 Day Forecast Section-->
+            <div class="column is-one-fifth" id="earth">Monday</div>
 
-        <div class="column is-one-fifth" id="forecast-card">Wednesday</div>
+            <div class="column is-one-fifth" id="earth">Tuesday</div>
 
-        <div class="column is-one-fifth" id="forecast-card">Thursday</div>
+            <div class="column is-one-fifth" id="earth">Wednesday</div>
 
-        <div class="column is-one-fifth" id="forecast-card">Friday</div>
-    </div> 
+            <div class="column is-one-fifth" id="earth">Thursday</div>
 
-</section>
+            <div class="column is-one-fifth" id="earth">Friday</div>
+        </div>
+
+    </section>
 
     <script src="./assets/js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 </html>
