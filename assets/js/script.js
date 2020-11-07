@@ -21,35 +21,35 @@ var getMarsWeather = function (data) {
     .then(r => r.json())
     .then(function (data) {
 
-        $("#sol").text(data.sol_keys[0])
+        $("#sol").text("Sol " + data.sol_keys[0])
         $("#date").text(data[685].First_UTC)
-        $("#high").text(data[685].AT.mx)
-        $("#low").text(data[685].AT.mn)
-        $("#wind-speed").text(data[685].HWS.av)
+        $("#high").text("High: " + data[685].AT.mx)
+        $("#low").text("Low: " + data[685].AT.mn)
+        $("#wind-speed").text("Wind Speed: " + data[685].HWS.av)
 
-        $("#sol2").text(data.sol_keys[1]);
+        $("#sol2").text("Sol " + data.sol_keys[1]);
         $("#date2").text(data[688].First_UTC);
-        $("#high2").text(data[688].AT.mx);
-        $("#low2").text(data[688].AT.mn);
-        $("#wind-speed2").text(data[688].HWS.av);
+        $("#high2").text("High: " + data[688].AT.mx);
+        $("#low2").text("Low: " + data[688].AT.mn);
+        $("#wind-speed2").text("Wind Speed: " + data[688].HWS.av);
 
-        $("#sol3").text(data.sol_keys[2]);
+        $("#sol3").text("Sol " + data.sol_keys[2]);
         $("#date3").text(data[689].First_UTC);
-        $("#high3").text(data[689].AT.mx);
-        $("#low3").text(data[689].AT.mn);
-        $("#wind-speed3").text(data[689].HWS.av);
+        $("#high3").text("High: " + data[689].AT.mx);
+        $("#low3").text("Low: " + data[689].AT.mn);
+        $("#wind-speed3").text("Wind Speed: " + data[689].HWS.av);
         
-        $("#sol4").text(data.sol_keys[3]);
+        $("#sol4").text("Sol " + data.sol_keys[3]);
         $("#date4").text(data[690].First_UTC);
-        $("#high4").text(data[690].AT.mx);
-        $("#low4").text(data[690].AT.mn);
-        $("#wind-speed4").text(data[690].HWS.av);
+        $("#high4").text("High: " + data[690].AT.mx);
+        $("#low4").text("Low: " + data[690].AT.mn);
+        $("#wind-speed4").text("Wind Speed: " + data[690].HWS.av);
 
-        $("#sol5").text(data.sol_keys[4]);
+        $("#sol5").text("Sol " + data.sol_keys[4]);
         $("#date5").text(data[691].First_UTC);
-        $("#high5").text(data[691].AT.mx);
-        $("#low5").text(data[691].AT.mn);
-        $("#wind-speed5").text(data[691].HWS.av);
+        $("#high5").text("High: " + data[691].AT.mx);
+        $("#low5").text("Low: " + data[691].AT.mn);
+        $("#wind-speed5").text("Wind Speed: " + data[691].HWS.av);
 
         console.log(data);
         
