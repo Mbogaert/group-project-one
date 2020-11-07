@@ -8,6 +8,7 @@ var temp = document.querySelector("#temp");
 var wind = document.querySelector("#wind");
 var lat = ' ';
 var lon = ' ';
+var city = document.querySelector("#city");
 
 // TBD 
 // add another camera/API to the other photo
@@ -17,8 +18,8 @@ var lon = ' ';
 
 
 // call Mars Photo API
-var getMarsPhotos = function(sol) {
-    var sol = 10 + Math.floor(Math.random() * (1000 - 10 + 1)); 
+var getMarsPhotos = function (sol) {
+    var sol = 10 + Math.floor(Math.random() * (1000 - 10 + 1));
     var marsApiUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=" + sol + "&api_key=" + marsApiKey;
 
     fetch(marsApiUrl).then(function (responseMarsPhoto) {
@@ -29,7 +30,7 @@ var getMarsPhotos = function(sol) {
 };
 
 // display Mars photo on the page 
-var displayMarsPhotos = function(photoData) {
+var displayMarsPhotos = function (photoData) {
     console.log(photoData);
     console.log(photoOneEl);
 
@@ -83,6 +84,7 @@ function earthWeather() {
 }
 
 function EarthCurrentWeather() {
+    city.innerText = "City:" + " " + where.city.name
     temp.innerText = "temp:" + " " + todayWeather.properties.periods[0].temperature + "°F"
     wind.innerText = "wind speed:" + " " + todayWeather.properties.periods[0].windSpeed
 }
