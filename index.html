@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head class="column">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mars weather vs earth weather</title>
+    <title class="column">Mars weather vs earth weather</title>
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
 </head>
@@ -12,7 +12,9 @@
 <body>
     <header class="header-bar">
         <div class="column is-full" id="navbar">
-            <h1>Martian Weather <p class="vs">VS</p> Earthling Weather</h1>
+            <h1 class="mars">Martian Weather</h1>
+            <p class="vs">VS</p>
+            <h1 class="earthling">Earthling Weather</h1>
         </div>
     </header>
 
@@ -45,7 +47,12 @@
         </div>
         <div class="columns" id="photo" id="forecast-card">
             <div class="column is-half">
+<<<<<<< HEAD
                 <img id="photoOne"src="./assets/images/CuriosityRover1.jpg" alt="Cool pic">
+=======
+
+                <img id="photoOne" src="./assets/images/CuriosityRover1.jpg" alt="Cool pic">
+>>>>>>> main
             </div>
             <div class="column is-half">
                 <img id="photoTwo" src="./assets/images/CuriosityRover1.jpg" alt="Cool mars pic">
@@ -85,5 +92,6 @@
 
     <script src="./assets/js/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
 </html>
