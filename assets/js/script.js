@@ -18,43 +18,30 @@ var city = document.querySelector("#city");
 
 var getMarsWeather = function (data) {
     fetch("https://api.nasa.gov/insight_weather/?api_key=" + marsApiKey + "&feedtype=json&ver=1.0")
-    .then(r => r.json())
-    .then(function (data) {
+        .then(r => r.json())
+        .then(function (data) {
 
-        $("#sol").text("Sol " + data.sol_keys[0])
-        $("#date").text(data[685].First_UTC)
-        $("#high").text("High: " + data[685].AT.mx)
-        $("#low").text("Low: " + data[685].AT.mn)
-        $("#wind-speed").text("Wind Speed: " + data[685].HWS.av)
+            for (let i = 0; i < data.sol_keys.length; i++) {
+                const key = data.sol_keys[i];
+                var idmodifier = i === 0 ? "" : i + 1
+                console.log(key, data[key])
+                $("#sol" + idmodifier).text("Sol " + key)
+                $("#date" + idmodifier).text(data[key].First_UTC)
+                if (data[key].AT) {
+                    $("#high" + idmodifier).text("High: " + data[key].AT.mx);
+                    $("#low" + idmodifier).text("Low: " + data[key].AT.mn);
+                    $("#wind-speed" + idmodifier).text("Wind Speed: " + data[key].HWS.av);
+                } else {
+                    $("#high" + idmodifier).text("High: " + data[key].PRE.mx)
+                    $("#low" + idmodifier).text("Low: " + data[key].PRE.mn)
+                }
+                
+            }
 
-        $("#sol2").text("Sol " + data.sol_keys[1]);
-        $("#date2").text(data[688].First_UTC);
-        $("#high2").text("High: " + data[688].AT.mx);
-        $("#low2").text("Low: " + data[688].AT.mn);
-        $("#wind-speed2").text("Wind Speed: " + data[688].HWS.av);
+            console.log(data);
 
-        $("#sol3").text("Sol " + data.sol_keys[2]);
-        $("#date3").text(data[689].First_UTC);
-        $("#high3").text("High: " + data[689].AT.mx);
-        $("#low3").text("Low: " + data[689].AT.mn);
-        $("#wind-speed3").text("Wind Speed: " + data[689].HWS.av);
-        
-        $("#sol4").text("Sol " + data.sol_keys[3]);
-        $("#date4").text(data[690].First_UTC);
-        $("#high4").text("High: " + data[690].AT.mx);
-        $("#low4").text("Low: " + data[690].AT.mn);
-        $("#wind-speed4").text("Wind Speed: " + data[690].HWS.av);
+        })
 
-        $("#sol5").text("Sol " + data.sol_keys[4]);
-        $("#date5").text(data[691].First_UTC);
-        $("#high5").text("High: " + data[691].AT.mx);
-        $("#low5").text("Low: " + data[691].AT.mn);
-        $("#wind-speed5").text("Wind Speed: " + data[691].HWS.av);
-
-        console.log(data);
-        
-    })
-    
 }
 getMarsWeather();
 // call Mars Photo API
