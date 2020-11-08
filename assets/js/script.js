@@ -15,7 +15,39 @@ var city = document.querySelector("#city");
 // figure out what image should be displayed on landing on the page - if any
 // Maybe: do we want to see if we can match the sol day that is displayed in the Mars weather week to the sol day of the photo - waiting for Mars week to be added to explore
 
+<<<<<<< HEAD
 // call Mars Photo API for Opportunity Rover Pancam
+=======
+var getMarsWeather = function (data) {
+    fetch("https://api.nasa.gov/insight_weather/?api_key=" + marsApiKey + "&feedtype=json&ver=1.0")
+        .then(r => r.json())
+        .then(function (data) {
+
+            for (let i = 0; i < data.sol_keys.length; i++) {
+                const key = data.sol_keys[i];
+                var idmodifier = i === 0 ? "" : i + 1
+                console.log(key, data[key])
+                $("#sol" + idmodifier).text("Sol " + key)
+                $("#date" + idmodifier).text(data[key].First_UTC)
+                if (data[key].AT) {
+                    $("#high" + idmodifier).text("High: " + data[key].AT.mx);
+                    $("#low" + idmodifier).text("Low: " + data[key].AT.mn);
+                    $("#wind-speed" + idmodifier).text("Wind Speed: " + data[key].HWS.av);
+                } else {
+                    $("#high" + idmodifier).text("High: " + data[key].PRE.mx)
+                    $("#low" + idmodifier).text("Low: " + data[key].PRE.mn)
+                }
+                
+            }
+
+            console.log(data);
+
+        })
+
+}
+getMarsWeather();
+// call Mars Photo API
+>>>>>>> main
 var getMarsPhotos = function (sol) {
     var sol = 10 + Math.floor(Math.random() * (1000 - 10 + 1));
     var marsApiUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/opportunity/photos?sol=" + sol + "&camera=pancam&api_key=" + marsApiKey;
