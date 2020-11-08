@@ -16,7 +16,34 @@ var city = document.querySelector("#city");
 // check to make sure the array exists function - if it doesn't run getMarsPhotos again
 // figure out what image should be displayed on landing on the page - if any
 
+var getMarsWeather = function (data) {
+    fetch("https://api.nasa.gov/insight_weather/?api_key=" + marsApiKey + "&feedtype=json&ver=1.0")
+        .then(r => r.json())
+        .then(function (data) {
 
+            for (let i = 0; i < data.sol_keys.length; i++) {
+                const key = data.sol_keys[i];
+                var idmodifier = i === 0 ? "" : i + 1
+                console.log(key, data[key])
+                $("#sol" + idmodifier).text("Sol " + key)
+                $("#date" + idmodifier).text(data[key].First_UTC)
+                if (data[key].AT) {
+                    $("#high" + idmodifier).text("High: " + data[key].AT.mx);
+                    $("#low" + idmodifier).text("Low: " + data[key].AT.mn);
+                    $("#wind-speed" + idmodifier).text("Wind Speed: " + data[key].HWS.av);
+                } else {
+                    $("#high" + idmodifier).text("High: " + data[key].PRE.mx)
+                    $("#low" + idmodifier).text("Low: " + data[key].PRE.mn)
+                }
+                
+            }
+
+            console.log(data);
+
+        })
+
+}
+getMarsWeather();
 // call Mars Photo API
 var getMarsPhotos = function (sol) {
     var sol = 10 + Math.floor(Math.random() * (1000 - 10 + 1));
