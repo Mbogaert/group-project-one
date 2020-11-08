@@ -10,11 +10,10 @@ var lat = ' ';
 var lon = ' ';
 var city = document.querySelector("#city");
 
-// TBD 
+// change the displayed photo size or check to make sure displayed photo size is big enough
 // add another camera/API to the other photo
-// photo sizing hmmm...
-// check to make sure the array exists function - if it doesn't run getMarsPhotos again
-// figure out what image should be displayed on landing on the page - if any
+// figure out what image should be displayed on landing on the page -
+// Maybe: do we want to see if we can match the sol day that is displayed in the Mars weather week to the sol day of the photo - waiting for Mars week to be added to explore
 
 var getMarsWeather = function (data) {
     fetch("https://api.nasa.gov/insight_weather/?api_key=" + marsApiKey + "&feedtype=json&ver=1.0")
@@ -44,10 +43,11 @@ var getMarsWeather = function (data) {
 
 }
 getMarsWeather();
-// call Mars Photo API
+
+// // call Mars Photo API for Opportunity Rover Pancam
 var getMarsPhotos = function (sol) {
     var sol = 10 + Math.floor(Math.random() * (1000 - 10 + 1));
-    var marsApiUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=" + sol + "&api_key=" + marsApiKey;
+    var marsApiUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/opportunity/photos?sol=" + sol + "&camera=pancam&api_key=" + marsApiKey;
 
     fetch(marsApiUrl).then(function (responseMarsPhoto) {
         responseMarsPhoto.json().then(function (photoData) {
@@ -58,23 +58,25 @@ var getMarsPhotos = function (sol) {
 
 // display Mars photo on the page 
 var displayMarsPhotos = function (photoData) {
-    console.log(photoData);
-    console.log(photoOneEl);
 
-    // clear old content - so that with each run of the application new images are generated
+    // clear old content 
     photoOneEl.src = "";
     photoTwoEl.src = "";
-    console.log(photoOneEl);
 
     var randomNumber = Math.floor(Math.random() * photoData.photos.length);
     var randomNumberTwo = Math.floor(Math.random() * photoData.photos.length);
-    console.log(randomNumber);
 
+    // if the photo array is empty, run getMarsphotos again
+    if (photoData.photos.length === 0) {
+        getMarsPhotos();
+    } // display the photos if they are available
+    else {
     var photoOne = photoData.photos[randomNumber].img_src;
     photoOneEl.src = photoOne;
 
     var photoTwo = photoData.photos[randomNumberTwo].img_src;
     photoTwoEl.src = photoTwo;
+    };
 };
 
 
