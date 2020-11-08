@@ -58,7 +58,6 @@ var getMarsPhotos = function (sol) {
 
 // display Mars photo on the page 
 var displayMarsPhotos = function (photoData) {
-    console.log(photoData);
 
     // clear old content 
     photoOneEl.src = "";
@@ -66,15 +65,18 @@ var displayMarsPhotos = function (photoData) {
 
     var randomNumber = Math.floor(Math.random() * photoData.photos.length);
     var randomNumberTwo = Math.floor(Math.random() * photoData.photos.length);
-    console.log(randomNumber, randomNumberTwo);
 
-    // if the img_src is empty then start getMarsPhotos over else change photo src
-
+    // if the photo array is empty, run getMarsphotos again
+    if (photoData.photos.length === 0) {
+        getMarsPhotos();
+    } // display the photos if they are available
+    else {
     var photoOne = photoData.photos[randomNumber].img_src;
     photoOneEl.src = photoOne;
 
     var photoTwo = photoData.photos[randomNumberTwo].img_src;
     photoTwoEl.src = photoTwo;
+    };
 };
 
 
