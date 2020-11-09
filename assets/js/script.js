@@ -31,7 +31,7 @@ var wind5 = document.querySelector("#wind5");
 // figure out what image should be displayed on landing on the page -
 // Maybe: do we want to see if we can match the sol day that is displayed in the Mars weather week to the sol day of the photo - waiting for Mars week to be added to explore
 
-/*var getMarsWeather = function (data) {
+var getMarsWeather = function (data) {
     fetch("https://api.nasa.gov/insight_weather/?api_key=" + marsApiKey + "&feedtype=json&ver=1.0")
         .then(r => r.json())
         .then(function (data) {
@@ -57,8 +57,8 @@ var wind5 = document.querySelector("#wind5");
 
         })
 
-}*/
-//getMarsWeather();
+}
+getMarsWeather();
 
 // // call Mars Photo API for Opportunity Rover Pancam
 var getMarsPhotos = function (sol) {
@@ -129,23 +129,23 @@ function earthWeather() {
 }
 
 function EarthCurrentWeather() {
-    city.innerText = "City:" + " " + where.city.name + ' ' + todayWeather.properties.periods[0].name + " " + '(' + moment().format('ll') + ')'
+    city.innerText = "City:" + " " + where.city.name + "," + ' ' + todayWeather.properties.periods[0].name + " " + '(' + moment().format('ll') + ')'
     temp.innerText = "temp:" + " " + todayWeather.properties.periods[0].temperature + "°F"
     wind.innerText = "wind speed:" + " " + todayWeather.properties.periods[0].windSpeed
     info.innerText = "forcast" + todayWeather.properties.periods[0].detailedForecast
-    day1.innerText = "date" + " " + todayWeather.properties.periods[2].name + " " + '(' + moment().add(1, 'days').format('ll') + ')'
+    day1.innerText = "date:" + " " + todayWeather.properties.periods[2].name + " " + '(' + moment().add(1, 'days').format('ll') + ')'
     temp1.innerText = "temp:" + " " + todayWeather.properties.periods[2].temperature + "°F"
     wind1.innerText = "wind speed:" + " " + todayWeather.properties.periods[2].windSpeed
-    day2.innerText = "date" + " " + todayWeather.properties.periods[4].name + " " + '(' + moment().add(2, 'days').format('ll') + ')'
+    day2.innerText = "date:" + " " + todayWeather.properties.periods[4].name + " " + '(' + moment().add(2, 'days').format('ll') + ')'
     temp2.innerText = "temp:" + " " + todayWeather.properties.periods[4].temperature + "°F"
     wind2.innerText = "wind speed:" + " " + todayWeather.properties.periods[4].windSpeed
-    day3.innerText = "date" + " " + todayWeather.properties.periods[6].name + " " + '(' + moment().add(3, 'days').format('ll') + ')'
+    day3.innerText = "date:" + " " + todayWeather.properties.periods[6].name + " " + '(' + moment().add(3, 'days').format('ll') + ')'
     temp3.innerText = "temp:" + " " + todayWeather.properties.periods[6].temperature + "°F"
     wind3.innerText = "wind speed:" + " " + todayWeather.properties.periods[6].windSpeed
-    day4.innerText = "date" + " " + todayWeather.properties.periods[8].name + " " + '(' + moment().add(4, 'days').format('ll') + ')'
+    day4.innerText = "date:" + " " + todayWeather.properties.periods[8].name + " " + '(' + moment().add(4, 'days').format('ll') + ')'
     temp4.innerText = "temp:" + " " + todayWeather.properties.periods[8].temperature + "°F"
     wind4.innerText = "wind speed:" + " " + todayWeather.properties.periods[8].windSpeed
-    day5.innerText = "date" + " " + todayWeather.properties.periods[10].name + " " + '(' + moment().add(5, 'days').format('ll') + ')'
+    day5.innerText = "date:" + " " + todayWeather.properties.periods[10].name + " " + '(' + moment().add(5, 'days').format('ll') + ')'
     temp5.innerText = "temp:" + " " + todayWeather.properties.periods[10].temperature + "°F"
     wind5.innerText = "wind speed:" + " " + todayWeather.properties.periods[10].windSpeed
 }
