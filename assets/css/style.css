@@ -57,6 +57,7 @@ div {
 img {
     border-radius: 8px;
     border: none;
+    min-width: -webkit-fill-available;
 }
 
 p {
