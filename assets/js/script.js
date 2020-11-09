@@ -9,13 +9,29 @@ var wind = document.querySelector("#wind");
 var lat = ' ';
 var lon = ' ';
 var city = document.querySelector("#city");
+var info = document.querySelector("#info");
+var day1 = document.querySelector("#day1");
+var temp1 = document.querySelector("#temp1");
+var wind1 = document.querySelector("#wind1");
+var day2 = document.querySelector("#day2");
+var temp2 = document.querySelector("#temp2");
+var wind2 = document.querySelector("#wind2");
+var day3 = document.querySelector("#day3");
+var temp3 = document.querySelector("#temp3");
+var wind3 = document.querySelector("#wind3");
+var day4 = document.querySelector("#day4");
+var temp4 = document.querySelector("#temp4");
+var wind4 = document.querySelector("#wind4");
+var day5 = document.querySelector("#day5");
+var temp5 = document.querySelector("#temp5");
+var wind5 = document.querySelector("#wind5");
 
 // change the displayed photo size or check to make sure displayed photo size is big enough
 // add another camera/API to the other photo
 // figure out what image should be displayed on landing on the page -
 // Maybe: do we want to see if we can match the sol day that is displayed in the Mars weather week to the sol day of the photo - waiting for Mars week to be added to explore
 
-var getMarsWeather = function (data) {
+/*var getMarsWeather = function (data) {
     fetch("https://api.nasa.gov/insight_weather/?api_key=" + marsApiKey + "&feedtype=json&ver=1.0")
         .then(r => r.json())
         .then(function (data) {
@@ -23,7 +39,7 @@ var getMarsWeather = function (data) {
             for (let i = 0; i < data.sol_keys.length; i++) {
                 const key = data.sol_keys[i];
                 var idmodifier = i === 0 ? "" : i + 1
-                console.log(key, data[key])
+                // console.log(key, data[key])
                 $("#sol" + idmodifier).text("Sol " + key)
                 $("#date" + idmodifier).text(data[key].First_UTC)
                 if (data[key].AT) {
@@ -34,15 +50,15 @@ var getMarsWeather = function (data) {
                     $("#high" + idmodifier).text("High: " + data[key].PRE.mx)
                     $("#low" + idmodifier).text("Low: " + data[key].PRE.mn)
                 }
-                
+
             }
 
-            console.log(data);
+            //console.log(data);
 
         })
 
-}
-getMarsWeather();
+}*/
+//getMarsWeather();
 
 // // call Mars Photo API for Opportunity Rover Pancam
 var getMarsPhotos = function (sol) {
@@ -71,11 +87,11 @@ var displayMarsPhotos = function (photoData) {
         getMarsPhotos();
     } // display the photos if they are available
     else {
-    var photoOne = photoData.photos[randomNumber].img_src;
-    photoOneEl.src = photoOne;
+        var photoOne = photoData.photos[randomNumber].img_src;
+        photoOneEl.src = photoOne;
 
-    var photoTwo = photoData.photos[randomNumberTwo].img_src;
-    photoTwoEl.src = photoTwo;
+        var photoTwo = photoData.photos[randomNumberTwo].img_src;
+        photoTwoEl.src = photoTwo;
     };
 };
 
@@ -113,9 +129,25 @@ function earthWeather() {
 }
 
 function EarthCurrentWeather() {
-    city.innerText = "City:" + " " + where.city.name + ' ' + '(' + moment().format('ll') + ')'
+    city.innerText = "City:" + " " + where.city.name + ' ' + todayWeather.properties.periods[0].name + " " + '(' + moment().format('ll') + ')'
     temp.innerText = "temp:" + " " + todayWeather.properties.periods[0].temperature + "°F"
     wind.innerText = "wind speed:" + " " + todayWeather.properties.periods[0].windSpeed
+    info.innerText = "forcast" + todayWeather.properties.periods[0].detailedForecast
+    day1.innerText = "date" + " " + todayWeather.properties.periods[2].name + " " + '(' + moment().add(1, 'days').format('ll') + ')'
+    temp1.innerText = "temp:" + " " + todayWeather.properties.periods[2].temperature + "°F"
+    wind1.innerText = "wind speed:" + " " + todayWeather.properties.periods[2].windSpeed
+    day2.innerText = "date" + " " + todayWeather.properties.periods[4].name + " " + '(' + moment().add(2, 'days').format('ll') + ')'
+    temp2.innerText = "temp:" + " " + todayWeather.properties.periods[4].temperature + "°F"
+    wind2.innerText = "wind speed:" + " " + todayWeather.properties.periods[4].windSpeed
+    day3.innerText = "date" + " " + todayWeather.properties.periods[6].name + " " + '(' + moment().add(3, 'days').format('ll') + ')'
+    temp3.innerText = "temp:" + " " + todayWeather.properties.periods[6].temperature + "°F"
+    wind3.innerText = "wind speed:" + " " + todayWeather.properties.periods[6].windSpeed
+    day4.innerText = "date" + " " + todayWeather.properties.periods[8].name + " " + '(' + moment().add(4, 'days').format('ll') + ')'
+    temp4.innerText = "temp:" + " " + todayWeather.properties.periods[8].temperature + "°F"
+    wind4.innerText = "wind speed:" + " " + todayWeather.properties.periods[8].windSpeed
+    day5.innerText = "date" + " " + todayWeather.properties.periods[10].name + " " + '(' + moment().add(5, 'days').format('ll') + ')'
+    temp5.innerText = "temp:" + " " + todayWeather.properties.periods[10].temperature + "°F"
+    wind5.innerText = "wind speed:" + " " + todayWeather.properties.periods[10].windSpeed
 }
 
 search.onclick = place;
