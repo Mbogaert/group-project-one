@@ -66,11 +66,11 @@ p {
 #earth {
     background-color: rgb(0, 0, 255);
     width: 318px;
-    height: 100px;
+    height: auto;
     padding: 40px;
     display: flex;
     justify-content: center;
-    color: white;
+    color: blue;
 }
 
 .mars {
