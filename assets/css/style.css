@@ -12,16 +12,17 @@ body {
     width: 100%;
 }
 
-#forecast-card {
+.forecast-card {
     background-color: rgba(82, 38, 7, .75);
-    width: 300px;
-    height: 300px;
-    padding: 40px;
+   min-width: 10%;
+    height: auto;
+    padding: 20px;
     display: flex;
     justify-content: center;
     color: white;
-    margin: 20px;
+    margin: auto;
     border-radius: 2rem;
+    flex-wrap: wrap;
     
 }
 
@@ -29,6 +30,11 @@ body {
     font-size: 20px;
     text-align: center;
     padding: 5px;
+}
+
+#mars-container {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 h1 {
@@ -40,10 +46,9 @@ h1 {
 }
 
 div {
-    background-color: white;
-    border: 1px solid black;
     overflow: hidden;
     box-sizing: border-box;
+    color: ivory;
 
 
 }
@@ -65,14 +70,14 @@ p {
 }
 
 #earth {
-    background-color: rgb(0, 0, 255);
-    width: 318px;
-    height: auto;
-    padding: 40px;
     display: flex;
-    justify-content: center;
-    color: blue;
+    flex-wrap: wrap;
 }
+
+.earth {
+    background-color: rgb(0, 0, 255, .75);
+}
+
 
 .mars {
     color: rgb(82, 38, 7);
