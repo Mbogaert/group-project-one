@@ -26,7 +26,6 @@ var day5 = document.querySelector("#day5");
 var temp5 = document.querySelector("#temp5");
 var wind5 = document.querySelector("#wind5");
 
-// change the displayed photo size or check to make sure displayed photo size is big enough
 // add another camera/API to the other photo
 // figure out what image should be displayed on landing on the page -
 // Maybe: do we want to see if we can match the sol day that is displayed in the Mars weather week to the sol day of the photo - waiting for Mars week to be added to explore
@@ -60,27 +59,33 @@ var getMarsWeather = function (data) {
 }
 getMarsWeather();
 
-// // call Mars Photo API for Opportunity Rover Pancam
-var getMarsPhotos = function (sol) {
+// // call Mars Photo APIs for Opportunity and Spirit Rover Pancams for the same random day
+function getMarsPhotos(sol) {
     var sol = 10 + Math.floor(Math.random() * (1000 - 10 + 1));
-    var marsApiUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/opportunity/photos?sol=" + sol + "&camera=pancam&api_key=" + marsApiKey;
+    var opportunityApiUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/opportunity/photos?sol=" + sol + "&camera=pancam&api_key=" + marsApiKey;
+    var spiritApiUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/spirit/photos?sol=" + sol + "&camera=pancam&api_key=" + marsApiKey;
 
-    fetch(marsApiUrl).then(function (responseMarsPhoto) {
-        responseMarsPhoto.json().then(function (photoData) {
-            displayMarsPhotos(photoData);
+    // fetch the opportunity API
+    fetch(opportunityApiUrl).then(function (responseOpportunityPhoto) {
+        responseOpportunityPhoto.json().then(function (photoData) {
+            displayMarsPhotoOne(photoData);
+        })
+    })
+    // fetch the spirit API
+    fetch(spiritApiUrl).then(function (responseSpiritPhoto) {
+        responseSpiritPhoto.json().then(function (photoDataTwo) {
+            displayMarsPhotoTwo(photoDataTwo)
         })
     })
 };
 
-// display Mars photo on the page 
-var displayMarsPhotos = function (photoData) {
+// display Mars photo one on the page 
+function displayMarsPhotoOne(photoData) {
 
     // clear old content 
     photoOneEl.src = "";
-    photoTwoEl.src = "";
 
     var randomNumber = Math.floor(Math.random() * photoData.photos.length);
-    var randomNumberTwo = Math.floor(Math.random() * photoData.photos.length);
 
     // if the photo array is empty, run getMarsphotos again
     if (photoData.photos.length === 0) {
@@ -89,8 +94,23 @@ var displayMarsPhotos = function (photoData) {
     else {
         var photoOne = photoData.photos[randomNumber].img_src;
         photoOneEl.src = photoOne;
+    };
+};
 
-        var photoTwo = photoData.photos[randomNumberTwo].img_src;
+// display Mars photo two
+function displayMarsPhotoTwo (photoDataTwo) {
+
+    // clear old content  
+    photoTwoEl.src = "";
+
+    var randomNumberTwo = Math.floor(Math.random() * photoDataTwo.photos.length);
+
+    // if the photo array is empty, run getMarsphotos again
+    if (photoDataTwo.photos.length === 0) {
+        getMarsPhotos();
+    } // display the photos if they are available
+    else {
+        var photoTwo = photoDataTwo.photos[randomNumberTwo].img_src;
         photoTwoEl.src = photoTwo;
     };
 };
@@ -114,13 +134,13 @@ function earthWeather() {
         .then(r => r.json())
         .then(function (json) {
             today = json
-            console.log(today)
+            // console.log(today)
             fetch(today.properties.forecast)
 
                 .then(r => r.json())
                 .then(function (json) {
                     todayWeather = json
-                    console.log(todayWeather)
+                    // console.log(todayWeather)
                     EarthCurrentWeather()
                     getMarsPhotos();
                 })
