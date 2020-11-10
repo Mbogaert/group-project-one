@@ -13,7 +13,7 @@ body {
 }
 
 .forecast-card {
-    background-color: rgba(82, 38, 7, .75);
+    background-color: red;
    min-width: 10%;
     height: auto;
     padding: 20px;
@@ -78,9 +78,12 @@ p {
     background-color: rgb(0, 0, 255, .75);
 }
 
+.current {
+    background-color: purple;
+}
 
 .mars {
-    color: rgb(82, 38, 7);
+    color: red;
 }
 
 .earthling {

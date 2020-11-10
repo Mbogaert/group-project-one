@@ -49,8 +49,8 @@ var getMarsWeather = function (data) {
                 } else {
                     $("#high" + idmodifier).text("High: " + data[key].PRE.mx)
                     $("#low" + idmodifier).text("Low: " + data[key].PRE.mn)
-                } 
-                if(data [key].HWS) {
+                }
+                if (data[key].HWS) {
                     $("#wind-speed" + idmodifier).text("Wind Speed: " + data[key].HWS.av);
 
                 }
@@ -103,7 +103,7 @@ function displayMarsPhotoOne(photoData) {
 };
 
 // display Mars photo two
-function displayMarsPhotoTwo (photoDataTwo) {
+function displayMarsPhotoTwo(photoDataTwo) {
 
     // clear old content  
     photoTwoEl.src = "";
@@ -148,33 +148,33 @@ function earthWeather() {
                     // console.log(todayWeather)
                     EarthCurrentWeather()
                     getMarsPhotos();
-                    
+
                 })
-                
+
         })
-        
+
 }
 
 function EarthCurrentWeather() {
     city.innerText = "City:" + " " + where.city.name + "," + ' ' + todayWeather.properties.periods[0].name + " " + '(' + moment().format('ll') + ')'
-    temp.innerText = "temp:" + " " + todayWeather.properties.periods[0].temperature + "°F"
-    wind.innerText = "wind speed:" + " " + todayWeather.properties.periods[0].windSpeed
-    info.innerText = "forcast" + todayWeather.properties.periods[0].detailedForecast
-    day1.innerText = "date:" + " " + todayWeather.properties.periods[2].name + " " + '(' + moment().add(1, 'days').format('ll') + ')'
-    temp1.innerText = "temp:" + " " + todayWeather.properties.periods[2].temperature + "°F"
-    wind1.innerText = "wind speed:" + " " + todayWeather.properties.periods[2].windSpeed
-    day2.innerText = "date:" + " " + todayWeather.properties.periods[4].name + " " + '(' + moment().add(2, 'days').format('ll') + ')'
-    temp2.innerText = "temp:" + " " + todayWeather.properties.periods[4].temperature + "°F"
-    wind2.innerText = "wind speed:" + " " + todayWeather.properties.periods[4].windSpeed
-    day3.innerText = "date:" + " " + todayWeather.properties.periods[6].name + " " + '(' + moment().add(3, 'days').format('ll') + ')'
-    temp3.innerText = "temp:" + " " + todayWeather.properties.periods[6].temperature + "°F"
-    wind3.innerText = "wind speed:" + " " + todayWeather.properties.periods[6].windSpeed
-    day4.innerText = "date:" + " " + todayWeather.properties.periods[8].name + " " + '(' + moment().add(4, 'days').format('ll') + ')'
-    temp4.innerText = "temp:" + " " + todayWeather.properties.periods[8].temperature + "°F"
-    wind4.innerText = "wind speed:" + " " + todayWeather.properties.periods[8].windSpeed
-    day5.innerText = "date:" + " " + todayWeather.properties.periods[10].name + " " + '(' + moment().add(5, 'days').format('ll') + ')'
-    temp5.innerText = "temp:" + " " + todayWeather.properties.periods[10].temperature + "°F"
-    wind5.innerText = "wind speed:" + " " + todayWeather.properties.periods[10].windSpeed
+    temp.innerText = "Temp:" + " " + todayWeather.properties.periods[0].temperature + "°F"
+    wind.innerText = "Wind Speed:" + " " + todayWeather.properties.periods[0].windSpeed
+    info.innerText = "Forecast:" + " " + todayWeather.properties.periods[0].detailedForecast
+    day1.innerText = todayWeather.properties.periods[2].name + " " + '(' + moment().add(1, 'days').format('ll') + ')'
+    temp1.innerText = "Temp:" + " " + todayWeather.properties.periods[2].temperature + "°F"
+    wind1.innerText = "Wind Speed:" + " " + todayWeather.properties.periods[2].windSpeed
+    day2.innerText = todayWeather.properties.periods[4].name + " " + '(' + moment().add(2, 'days').format('ll') + ')'
+    temp2.innerText = "Temp:" + " " + todayWeather.properties.periods[4].temperature + "°F"
+    wind2.innerText = "Wind Speed:" + " " + todayWeather.properties.periods[4].windSpeed
+    day3.innerText = todayWeather.properties.periods[6].name + " " + '(' + moment().add(3, 'days').format('ll') + ')'
+    temp3.innerText = "Temp:" + " " + todayWeather.properties.periods[6].temperature + "°F"
+    wind3.innerText = "Wind Speed:" + " " + todayWeather.properties.periods[6].windSpeed
+    day4.innerText = todayWeather.properties.periods[8].name + " " + '(' + moment().add(4, 'days').format('ll') + ')'
+    temp4.innerText = "Temp:" + " " + todayWeather.properties.periods[8].temperature + "°F"
+    wind4.innerText = "Wind Speed:" + " " + todayWeather.properties.periods[8].windSpeed
+    day5.innerText = todayWeather.properties.periods[10].name + " " + '(' + moment().add(5, 'days').format('ll') + ')'
+    temp5.innerText = "Temp:" + " " + todayWeather.properties.periods[10].temperature + "°F"
+    wind5.innerText = "Wind Speed:" + " " + todayWeather.properties.periods[10].windSpeed
 }
 
 search.onclick = place;
@@ -201,6 +201,7 @@ function renderSearchHistory(cityName) {
         if (searchHistoryArr.indexOf(cityObj.cityName) === -1) {
             searchHistoryArr.push(cityObj.cityName);
             localStorage.setItem("searchHistory", JSON.stringify(searchHistoryArr));
-        }}
-    
+        }
+    }
+
 };
