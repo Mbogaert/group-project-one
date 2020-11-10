@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head class="column">
+<head >
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title class="column">Mars weather vs earth weather</title>
+    <title >Mars weather vs earth weather</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
 </head>
@@ -24,7 +25,7 @@
             <!--Header-->
             <h1 class="is-size-1">Mars</h1>
             <input class="input" type="text" id="search" placeholder="Text input">
-            <button class="button is-link" id="location">Submit</button>
+            <button class="button is-link historyItems" id="location">Submit</button>
         </div>
         <div class="columns">
             <!-- 5 Day Forecast Section-->
@@ -144,7 +145,7 @@
             <h1 class="is-size-1">Earth</h1>
         </div>
 
-        <div class="columns" id="current-weather" id="earth">
+        <div class="columns " id="current-weather" id="earth">
             <div class="column is-one-fifth" id="city"></div>
             <div class="column is-one-fifth" id="temp"></div>
             <div class="column is-one-fifth" id="wind"></div>

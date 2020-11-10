@@ -9,6 +9,8 @@ var wind = document.querySelector("#wind");
 var lat = ' ';
 var lon = ' ';
 var city = document.querySelector("#city");
+var searchHistoryEl = $(".historyItems");
+
 
 // TBD 
 // add another camera/API to the other photo
@@ -105,9 +107,11 @@ function earthWeather() {
                     console.log(todayWeather)
                     EarthCurrentWeather()
                     getMarsPhotos();
+                    
                 })
+                
         })
-
+        
 }
 
 function EarthCurrentWeather() {
@@ -117,3 +121,29 @@ function EarthCurrentWeather() {
 }
 
 search.onclick = place;
+
+//  local storage //
+
+if (JSON.parse(localStorage.getItem("searchHistory")) === null) {
+    console.log("searchHistory not found")
+} else {
+    console.log("searchHistory loaded into searchHistoryArr");
+    renderSearchHistory();
+}
+
+function renderSearchHistory(cityName) {
+    searchHistoryEl.empty();
+    var searchHistoryArr = JSON.parse(localStorage.getItem("searchHistory"));
+    for (var i = 0; i < searchHistoryArr.length; i++) {
+        var newListItem = $("<li>").attr("class", "historyEntry");
+        newListItem.text(searchHistoryArr[i]);
+        searchHistoryEl.prepend(newListItem);
+    }
+    if (JSON.parse(localStorage.getItem("searchHistory")) == null) {
+        var searchHistoryArr = [];
+        if (searchHistoryArr.indexOf(cityObj.cityName) === -1) {
+            searchHistoryArr.push(cityObj.cityName);
+            localStorage.setItem("searchHistory", JSON.stringify(searchHistoryArr));
+        }}
+    
+};
