@@ -44,8 +44,8 @@ var getMarsWeather = function (data) {
                 $("#sol" + idmodifier).text("Sol " + key)
                 $("#date" + idmodifier).text(data[key].First_UTC)
                 if (data[key].AT) {
-                    $("#high" + idmodifier).text("High: " + data[key].AT.mx);
-                    $("#low" + idmodifier).text("Low: " + data[key].AT.mn);
+                    $("#high" + idmodifier).text("High: " + Math.ceil(data[key].AT.mx * 9/5 + 32));
+                    $("#low" + idmodifier).text("Low: " + Math.ceil(data[key].AT.mn * 9/5 + 32));
                 } else {
                     $("#high" + idmodifier).text("High: " + data[key].PRE.mx)
                     $("#low" + idmodifier).text("Low: " + data[key].PRE.mn)
