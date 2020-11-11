@@ -17,13 +17,10 @@ body {
     min-width: 10%;
     height: auto;
     padding: 20px;
-    display: flex;
     justify-content: center;
     color: white;
     margin: auto;
     border-radius: 2rem;
-    flex-wrap: wrap;
-    
 }
 
 .forecast-list li {
@@ -60,9 +57,13 @@ div {
 }
 
 img {
-    border-radius: 8px;
-    border: none;
+    padding: 20px;
     min-width: -webkit-fill-available;
+}
+
+.photoHeader {
+    text-align: center;
+    font-weight: bold;
 }
 
 p {
@@ -80,6 +81,7 @@ p {
 
 .current {
     background-color: purple;
+    border-radius: 2rem;
 }
 
 .mars {
