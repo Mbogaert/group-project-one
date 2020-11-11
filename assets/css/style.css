@@ -13,8 +13,8 @@ body {
 }
 
 .forecast-card {
-    background-color: red;
-   min-width: 10%;
+    background-color: rgb(225, 0, 0, .75);
+    min-width: 10%;
     height: auto;
     padding: 20px;
     display: flex;
