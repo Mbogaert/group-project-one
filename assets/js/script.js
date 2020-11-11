@@ -28,10 +28,6 @@ var day5 = document.querySelector("#day5");
 var temp5 = document.querySelector("#temp5");
 var wind5 = document.querySelector("#wind5");
 
-// add another camera/API to the other photo
-// figure out what image should be displayed on landing on the page -
-// Maybe: do we want to see if we can match the sol day that is displayed in the Mars weather week to the sol day of the photo - waiting for Mars week to be added to explore
-
 var getMarsWeather = function (data) {
     fetch("https://api.nasa.gov/insight_weather/?api_key=" + marsApiKey + "&feedtype=json&ver=1.0")
         .then(r => r.json())
@@ -54,15 +50,10 @@ var getMarsWeather = function (data) {
                     $("#wind-speed" + idmodifier).text("Wind Speed: " + data[key].HWS.av);
 
                 }
-
             }
-
             //console.log(data);
-
         })
-
 }
-getMarsWeather();
 
 // // call Mars Photo APIs for Opportunity and Curiosity Rover Pancams for the same random day
 function getMarsPhotos(sol) {
@@ -95,7 +86,7 @@ function displayMarsPhotoOne(photoData) {
     // if the photo array is empty, run getMarsphotos again
     if (photoData.photos.length === 0) {
         getMarsPhotos();
-    } // display the photos if they are available
+    } // display the photo
     else {
         var photoOne = photoData.photos[randomNumber].img_src;
         photoOneEl.src = photoOne;
@@ -113,7 +104,7 @@ function displayMarsPhotoTwo(photoDataTwo) {
     // if the photo array is empty, run getMarsphotos again
     if (photoDataTwo.photos.length === 0) {
         getMarsPhotos();
-    } // display the photos if they are available
+    } // display the photo
     else {
         var photoTwo = photoDataTwo.photos[randomNumberTwo].img_src;
         photoTwoEl.src = photoTwo;
@@ -133,6 +124,7 @@ function place() {
             earthWeather()
         })
 }
+
 function earthWeather() {
     fetch("https://api.weather.gov/points/" + lat + ',' + lon)
 
@@ -205,3 +197,5 @@ function renderSearchHistory(cityName) {
     }
 
 };
+
+getMarsWeather();

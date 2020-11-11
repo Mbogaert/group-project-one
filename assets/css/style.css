@@ -2,6 +2,7 @@ body {
     background-color: darkgrey;
     background-image: url(https://cdn.wccftech.com/wp-content/uploads/2016/09/spacee-2060x1288.jpg);
 }
+
 #navbar {
     background-image: url(https://cdn.wccftech.com/wp-content/uploads/2016/09/spacee-2060x1288.jpg);
     color: white;
@@ -12,6 +13,30 @@ body {
     width: 100%;
 }
 
+/* header styling start */
+.mars {
+    color: red;
+}
+
+.earthling {
+    color: rgb(0, 0, 255);
+}
+
+.vs {
+    color: purple;
+    text-align: center;
+}
+/* header styling end */
+
+h1 {
+    justify-content: center;
+    font-size: 100px;
+    display: flex;
+    justify-content: center;
+    font-size: larger;
+}
+
+/* forecast cards */
 .forecast-card {
     background-color: rgb(225, 0, 0, .75);
     min-width: 10%;
@@ -34,28 +59,13 @@ body {
     flex-wrap: wrap;
 }
 
-h1 {
-    justify-content: center;
-    font-size: 100px;
-    display: flex;
-    justify-content: center;
-    font-size: larger;
-}
-
 div {
     overflow: hidden;
     box-sizing: border-box;
     color: ivory;
-
-
 }
 
-
-.vs {
-    color: purple;
-    text-align: center;
-}
-
+/* Mars images styling start */
 img {
     padding: 20px;
     min-width: -webkit-fill-available;
@@ -65,11 +75,13 @@ img {
     text-align: center;
     font-weight: bold;
 }
+/* Mars image styling end */
 
 p {
     text-align: left;
 }
 
+/* earth weather styling start */
 #earth {
     display: flex;
     flex-wrap: wrap;
@@ -83,11 +95,4 @@ p {
     background-color: purple;
     border-radius: 2rem;
 }
-
-.mars {
-    color: red;
-}
-
-.earthling {
-    color: rgb(0, 0, 255);
-}
+/* earth weasther styling end */
