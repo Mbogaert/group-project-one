@@ -44,14 +44,14 @@ var getMarsWeather = function (data) {
                 $("#sol" + idmodifier).text("Sol " + key)
                 $("#date" + idmodifier).text(data[key].First_UTC)
                 if (data[key].AT) {
-                    $("#high" + idmodifier).text("High: " + Math.ceil(data[key].AT.mx * 9/5 + 32));
-                    $("#low" + idmodifier).text("Low: " + Math.ceil(data[key].AT.mn * 9/5 + 32));
+                    $("#high" + idmodifier).text("High: " + Math.ceil(data[key].AT.mx * 9/5 + 32) + " °F");
+                    $("#low" + idmodifier).text("Low: " + Math.ceil(data[key].AT.mn * 9/5 + 32) + " °F");
                 } else {
-                    $("#high" + idmodifier).text("High: " + data[key].PRE.mx)
-                    $("#low" + idmodifier).text("Low: " + data[key].PRE.mn)
+                    $("#high" + idmodifier).text("High: " + Math.ceil(data[key].PRE.mx * 9/5 + 32) + " °F");
+                    $("#low" + idmodifier).text("Low: " + Math.ceil(data[key].PRE.mn * 9/5 + 32) + " °F")
                 }
                 if (data[key].HWS) {
-                    $("#wind-speed" + idmodifier).text("Wind Speed: " + data[key].HWS.av);
+                    $("#wind-speed" + idmodifier).text("Wind Speed: " + Math.ceil(data[key].HWS.av));
 
                 }
 
