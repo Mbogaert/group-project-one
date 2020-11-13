@@ -34,10 +34,6 @@ var where = [];
 var searchHistoryArr = JSON.parse(localStorage.getItem("searchHistory")) || [];
 
 
-// add another camera/API to the other photo
-// figure out what image should be displayed on landing on the page -
-// Maybe: do we want to see if we can match the sol day that is displayed in the Mars weather week to the sol day of the photo - waiting for Mars week to be added to explore
-
 var getMarsWeather = function (data) {
     fetch("https://api.nasa.gov/insight_weather/?api_key=" + marsApiKey + "&feedtype=json&ver=1.0")
         .then(r => r.json())
@@ -60,21 +56,16 @@ var getMarsWeather = function (data) {
                     $("#wind-speed" + idmodifier).text("Wind Speed: " + data[key].HWS.av);
 
                 }
-
             }
-
             //console.log(data);
-
         })
-
 }
-getMarsWeather();
 
-// // call Mars Photo APIs for Opportunity and Spirit Rover Pancams for the same random day
+// // call Mars Photo APIs for Opportunity and Curiosity Rover Pancams for the same random day
 function getMarsPhotos(sol) {
-    var sol = 10 + Math.floor(Math.random() * (1000 - 10 + 1));
-    var opportunityApiUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/opportunity/photos?sol=" + sol + "&camera=pancam&api_key=" + marsApiKey;
-    var spiritApiUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/spirit/photos?sol=" + sol + "&camera=pancam&api_key=" + marsApiKey;
+    var sol = 10 + Math.floor(Math.random() * (1500 - 10 + 1));
+    var opportunityApiUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/opportunity/photos?sol=" + sol + "&camera=fhaz&api_key=" + marsApiKey;
+    var curiosityApiUrl = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=" + sol + "&camera=mast&api_key=" + marsApiKey;
 
     // fetch the opportunity API
     fetch(opportunityApiUrl).then(function (responseOpportunityPhoto) {
@@ -82,9 +73,9 @@ function getMarsPhotos(sol) {
             displayMarsPhotoOne(photoData);
         })
     })
-    // fetch the spirit API
-    fetch(spiritApiUrl).then(function (responseSpiritPhoto) {
-        responseSpiritPhoto.json().then(function (photoDataTwo) {
+    // fetch the Curiosity API
+    fetch(curiosityApiUrl).then(function (responseCuriosityPhoto) {
+        responseCuriosityPhoto.json().then(function (photoDataTwo) {
             displayMarsPhotoTwo(photoDataTwo)
         })
     })
@@ -101,7 +92,7 @@ function displayMarsPhotoOne(photoData) {
     // if the photo array is empty, run getMarsphotos again
     if (photoData.photos.length === 0) {
         getMarsPhotos();
-    } // display the photos if they are available
+    } // display the photo
     else {
         var photoOne = photoData.photos[randomNumber].img_src;
         photoOneEl.src = photoOne;
@@ -119,7 +110,7 @@ function displayMarsPhotoTwo(photoDataTwo) {
     // if the photo array is empty, run getMarsphotos again
     if (photoDataTwo.photos.length === 0) {
         getMarsPhotos();
-    } // display the photos if they are available
+    } // display the photo
     else {
         var photoTwo = photoDataTwo.photos[randomNumberTwo].img_src;
         photoTwoEl.src = photoTwo;
@@ -149,6 +140,7 @@ function place() {
 
 
 }
+
 function earthWeather(lat, lon) {
     fetch("https://api.weather.gov/points/" + lat + ',' + lon)
 
@@ -220,9 +212,6 @@ function renderSearchHistory() {
     }
 
 
-}
-
-
-
-
+};
 renderSearchHistory();
+getMarsWeather();
