@@ -27,6 +27,12 @@ var wind4 = document.querySelector("#wind4");
 var day5 = document.querySelector("#day5");
 var temp5 = document.querySelector("#temp5");
 var wind5 = document.querySelector("#wind5");
+var cityName;
+var CityTemp;
+var cityWindSpeed;
+var where = [];
+var searchHistoryArr = JSON.parse(localStorage.getItem("searchHistory")) || [];
+
 
 var getMarsWeather = function (data) {
     fetch("https://api.nasa.gov/insight_weather/?api_key=" + marsApiKey + "&feedtype=json&ver=1.0")
@@ -118,36 +124,50 @@ function place() {
     fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial&appid=6d5ccf5473302b19f719a739ab7ff1c2")
         .then(r => r.json())
         .then(function (json) {
+            console.log(json)
             where = json
-            lat = where.city.coord.lat
-            lon = where.city.coord.lon
-            earthWeather()
+            var lat = where.city.coord.lat
+            var lon = where.city.coord.lon
+            if (!searchHistoryArr.includes(json.city.name)) {
+                searchHistoryArr.push(json.city.name);
+                localStorage.setItem("searchHistory", JSON.stringify(searchHistoryArr));
+                renderSearchHistory();
+            }
+
+            earthWeather(lat, lon)
         })
+
+
+
 }
 
-function earthWeather() {
+function earthWeather(lat, lon) {
     fetch("https://api.weather.gov/points/" + lat + ',' + lon)
+
 
         .then(r => r.json())
         .then(function (json) {
             today = json
-            // console.log(today)
             fetch(today.properties.forecast)
 
                 .then(r => r.json())
                 .then(function (json) {
                     todayWeather = json
-                    // console.log(todayWeather)
+
                     EarthCurrentWeather()
-                    getMarsPhotos();
+                    getMarsPhotos()
+
+
 
                 })
 
         })
 
+
 }
 
 function EarthCurrentWeather() {
+
     city.innerText = "City:" + " " + where.city.name + "," + ' ' + todayWeather.properties.periods[0].name + " " + '(' + moment().format('ll') + ')'
     temp.innerText = "Temp:" + " " + todayWeather.properties.periods[0].temperature + "°F"
     wind.innerText = "Wind Speed:" + " " + todayWeather.properties.periods[0].windSpeed
@@ -167,35 +187,31 @@ function EarthCurrentWeather() {
     day5.innerText = todayWeather.properties.periods[10].name + " " + '(' + moment().add(5, 'days').format('ll') + ')'
     temp5.innerText = "Temp:" + " " + todayWeather.properties.periods[10].temperature + "°F"
     wind5.innerText = "Wind Speed:" + " " + todayWeather.properties.periods[10].windSpeed
-}
+};
 
 search.onclick = place;
 
 //  local storage //
 
-if (JSON.parse(localStorage.getItem("searchHistory")) === null) {
-    console.log("searchHistory not found")
-} else {
-    console.log("searchHistory loaded into searchHistoryArr");
-    renderSearchHistory();
-}
+$(document).on("click", ".historyEntry", function () {
+    console.log("clicked history item")
+    var thisElement = $(this);
+    earthWeather(thisElement.text());
+    EarthCurrentWeather(thisElement.text());
+})
 
-function renderSearchHistory(cityName) {
+
+
+
+function renderSearchHistory() {
     searchHistoryEl.empty();
-    var searchHistoryArr = JSON.parse(localStorage.getItem("searchHistory"));
     for (var i = 0; i < searchHistoryArr.length; i++) {
         var newListItem = $("<li>").attr("class", "historyEntry");
         newListItem.text(searchHistoryArr[i]);
         searchHistoryEl.prepend(newListItem);
     }
-    if (JSON.parse(localStorage.getItem("searchHistory")) == null) {
-        var searchHistoryArr = [];
-        if (searchHistoryArr.indexOf(cityObj.cityName) === -1) {
-            searchHistoryArr.push(cityObj.cityName);
-            localStorage.setItem("searchHistory", JSON.stringify(searchHistoryArr));
-        }
-    }
+
 
 };
-
+renderSearchHistory();
 getMarsWeather();
