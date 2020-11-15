@@ -91,3 +91,28 @@ p {
     border-radius: 2rem;
 }
 /* earth weasther styling end */
+@media screen and (min-width: 414px) {
+    .header-bar {
+        text-align: center;
+        font-size: 10px;
+    }
+
+    .header-bar h1 {
+        font-size: 40px;
+    }
+
+    #current-weather {
+        width: 95%;
+        margin: 10px;
+    }
+
+    .forecast-item {
+        font-size: 15px;
+        text-align: center;
+        width: 90%;
+    }
+
+    .forecast-list {
+        width: 95%;
+    }
+}
