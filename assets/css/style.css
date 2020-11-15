@@ -115,4 +115,14 @@ p {
     .forecast-list {
         width: 95%;
     }
+
+    #search{
+        width: 90%;
+        margin-left: 20px;
+    }
+
+    #location {
+        margin-left: 11rem;
+    }
+
 }
