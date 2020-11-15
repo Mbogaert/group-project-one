@@ -12,7 +12,7 @@
 
 <body>
     <header class="header-bar">
-        <div class="column is-full" id="navbar">
+        <div id="navbar">
             <h1 class="mars">Martian Weather</h1>
             <p class="vs">VS</p>
             <h1 class="earthling">Earthling Weather</h1>
@@ -21,14 +21,14 @@
 
     <!-- Mars Weather section -->
     <section>
-        <div class="column">
+        <div>
             <!-- Mars Weather Header -->
             <h1 class="is-size-1">Mars</h1>
         </div>
-        <div class="columns" id="mars-container">
+        <div class="columns">
             <!-- 5 Day Forecast Mars Section -->
-            <div class="column is-one-fifth forecast-card">
-                <ul class="forecast-list">
+            <div class="column is-one-fifth">
+                <ul class="forecast-card forecast-list mars-color">
                     <li id="sol">
 
                     </li>
@@ -46,8 +46,8 @@
                     </li>
                 </ul>
             </div>
-            <div class="column is-one-fifth forecast-card">
-                <ul class="forecast-list">
+            <div class="column is-one-fifth">
+                <ul class="forecast-card forecast-list mars-color">
                     <li id="sol2">
 
                     </li>
@@ -65,8 +65,8 @@
                     </li>
                 </ul>
             </div>
-            <div class="column is-one-fifth forecast-card">
-                <ul class="forecast-list">
+            <div class="column is-one-fifth">
+                <ul class="forecast-card forecast-list mars-color">
                     <li id="sol3">
 
                     </li>
@@ -84,9 +84,9 @@
                     </li>
                 </ul>
             </div>
-            <div class="column is-one-fifth forecast-card">
-                <ul class="forecast-list">
-                    <li class="forecast-list" id="sol4">
+            <div class="column is-one-fifth">
+                <ul class="forecast-card forecast-list mars-color">
+                    <li id="sol4">
 
                     </li>
                     <li id="date4">
@@ -103,8 +103,8 @@
                     </li>
                 </ul>
             </div>
-            <div class="column is-one-fifth forecast-card">
-                <ul class="forecast-list">
+            <div class="column is-one-fifth">
+                <ul class="forecast-card forecast-list mars-color">
                     <li id="sol5">
 
                     </li>
@@ -156,8 +156,8 @@
         </div>
 
         <!-- Current weather -->
-        <div class="columns current " id="current-weather">
-            <div class="column is-one-fifth" id="city"></div>
+        <div class="columns current forecast-card" id="current-weather">
+            <div class="column is-one-fifth" id="city">Todays Weather</div>
             <div class="column is-one-fifth" id="temp"></div>
             <div class="column is-one-fifth" id="wind"></div>
             <p class="column is-two-fifth" id="info"></p>
@@ -165,41 +165,41 @@
         </div>
         
         <!-- 5 Day Forecast Section-->
-        <div class="columns" id="earth">
-            <div class="column is-one-fifth earth forecast-card">
-                <ul class="forecast-list">
+        <div class="columns">
+            <div class="column is-one-fifth">
+                <ul class="earth forecast-card forecast-list">
                     <li id="day1">Day 1</li>
                     <li id="temp1"></li>
                     <li id="wind1"></li>
                 </ul>
             </div>
 
-            <div class="column is-one-fifth earth forecast-card">
-                <ul class="forecast-list">
+            <div class="column is-one-fifth">
+                <ul class="earth forecast-card forecast-list">
                     <li id="day2">Day 2</li>
                     <li id="temp2"></li>
                     <li id="wind2"></li>
                 </ul>
             </div>
 
-            <div class="column is-one-fifth earth forecast-card">
-                <ul class=" forecast-list">
+            <div class="column is-one-fifth">
+                <ul class="earth forecast-card forecast-list">
                     <li id="day3">Day 3</li>
                     <li id="temp3"></li>
                     <li id="wind3"></li>
                 </ul>
             </div>
 
-            <div class="column is-one-fifth earth forecast-card">
-                <ul class="forecast-list">
+            <div class="column is-one-fifth">
+                <ul class="earth forecast-card forecast-list">
                     <li id="day4">Day 4</li>
                     <li id="temp4"></li>
                     <li id="wind4"></li>
                 </ul>
             </div>
 
-            <div class="column is-one-fifth earth forecast-card">
-                <ul class="forecast-list">
+            <div class="column is-one-fifth">
+                <ul class="earth forecast-card forecast-list">
                     <li id="day5">Day 5</li>
                     <li id="temp5"></li>
                     <li id="wind5"></li>
