@@ -168,7 +168,7 @@ function earthWeather(lat, lon) {
 
 function EarthCurrentWeather() {
 
-    city.innerText = "City:" + " " + where.city.name + "," + ' ' + todayWeather.properties.periods[0].name + " " + '(' + moment().format('ll') + ')'
+    city.innerText = where.city.name + "," + ' ' + todayWeather.properties.periods[0].name + " " + '(' + moment().format('ll') + ')'
     temp.innerText = "Temp:" + " " + todayWeather.properties.periods[0].temperature + "°F"
     wind.innerText = "Wind Speed:" + " " + todayWeather.properties.periods[0].windSpeed
     info.innerText = "Forecast:" + " " + todayWeather.properties.periods[0].detailedForecast
