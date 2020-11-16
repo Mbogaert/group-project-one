@@ -28,7 +28,7 @@ var day5 = document.querySelector("#day5");
 var temp5 = document.querySelector("#temp5");
 var wind5 = document.querySelector("#wind5");
 var cityName;
-var CityTemp;
+var CityTemp; 
 var cityWindSpeed;
 var where = [];
 var searchHistoryArr = JSON.parse(localStorage.getItem("searchHistory")) || [];
