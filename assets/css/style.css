@@ -84,13 +84,24 @@ p {
 /* earth weather styling start */
 .earth {
     background-color: rgb(0, 0, 255, .75);
+    border-radius: 2rem;
+}
+
+#history {
+    background-color: rgb(0, 0, 255, .75);
+    border-radius: 2rem;
+    margin-left: .75rem;
+    margin-right: .75rem;
 }
 
 .current {
     background-color: rgb(128, 0, 128, .75);
     border-radius: 2rem;
 }
-/* earth weasther styling end */
+/* earth weather styling end */
+
+/* media query styling start */
+
 @media screen and (min-width: 414px) {
     .header-bar {
         text-align: center;
@@ -102,7 +113,6 @@ p {
     }
 
     #current-weather {
-        width: 95%;
         margin: 10px;
     }
 
@@ -117,13 +127,10 @@ p {
     }
 
     #search{
-        width: 90%;
+        width: 75%;
         margin-left: 20px;
     }
 
-    #location {
-        margin-left: 11rem;
-        padding: 10px;
-    }
-
 }
+
+/* media query styling end */
