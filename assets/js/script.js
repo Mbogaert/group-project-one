@@ -162,9 +162,21 @@ function earthWeather(lat, lon) {
                 })
 
         })
-
-        .catch(error => alert("Please enter a USA city"));
+        // catches if the api returns a 404 and puts up a modal
+        .catch(error => showModal());
 }
+
+// function that brings up a modal about typing an actual city
+function showModal() {
+    $(".modal").addClass("is-active");
+}
+
+// button to close the modal
+$(".modal-close").click(function() {
+    $(".modal").removeClass("is-active");
+})
+
+
 
 function EarthCurrentWeather() {
 
