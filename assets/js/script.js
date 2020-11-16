@@ -42,7 +42,7 @@ var getMarsWeather = function (data) {
             for (let i = 0; i < data.sol_keys.length; i++) {
                 const key = data.sol_keys[i];
                 var idmodifier = i === 0 ? "" : i + 1
-                // console.log(key, data[key])
+    
                 $("#sol" + idmodifier).text("Sol " + key)
                 $("#date" + idmodifier).text(data[key].First_UTC)
                 if (data[key].AT) {
@@ -57,7 +57,7 @@ var getMarsWeather = function (data) {
 
                 }
             }
-            //console.log(data);
+   
         })
 }
 
@@ -123,7 +123,7 @@ function place(cityName) {
     fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial&appid=6d5ccf5473302b19f719a739ab7ff1c2")
         .then(r => r.json())
         .then(function (json) {
-            console.log(json)
+
             where = json
             var lat = where.city.coord.lat
             var lon = where.city.coord.lon
@@ -136,7 +136,7 @@ function place(cityName) {
             earthWeather(lat, lon)
         })
 
-
+        .catch(error => showModal());
 
 }
 
@@ -153,6 +153,7 @@ function earthWeather(lat, lon) {
                 .then(function (json) {
                     todayWeather = json
 
+                    
                     EarthCurrentWeather()
                     getMarsPhotos()
 
@@ -161,9 +162,21 @@ function earthWeather(lat, lon) {
                 })
 
         })
-
-
+        // catches if the api returns a 404 and puts up a modal
+        .catch(error => showModal());
 }
+
+// function that brings up a modal about typing an actual city
+function showModal() {
+    $(".modal").addClass("is-active");
+}
+
+// button to close the modal
+$(".modal-close").click(function() {
+    $(".modal").removeClass("is-active");
+})
+
+
 
 function EarthCurrentWeather() {
 
@@ -197,7 +210,7 @@ place(cityName)
 //  local storage //
 
 $(document).on("click", ".historyEntry", function () {
-    console.log("clicked history item")
+
     var thisElement = $(this);
     place(thisElement.text());
 })
