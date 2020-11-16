@@ -136,7 +136,7 @@ function place(cityName) {
             earthWeather(lat, lon)
         })
 
-
+        .catch(error => showModal());
 
 }
 
