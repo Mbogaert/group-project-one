@@ -118,8 +118,7 @@ function displayMarsPhotoTwo(photoDataTwo) {
 };
 
 
-function place() {
-    var cityName = document.querySelector("#search").value;
+function place(cityName) {
 
     fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial&appid=6d5ccf5473302b19f719a739ab7ff1c2")
         .then(r => r.json())
@@ -189,17 +188,19 @@ function EarthCurrentWeather() {
     wind5.innerText = "Wind Speed:" + " " + todayWeather.properties.periods[10].windSpeed
 };
 
-search.onclick = place;
+search.onclick = function() {
+    var cityName = document.querySelector("#search").value;
+place(cityName)
+}
+
 
 //  local storage //
 
 $(document).on("click", ".historyEntry", function () {
     console.log("clicked history item")
     var thisElement = $(this);
-    earthWeather(thisElement.text());
-    EarthCurrentWeather(thisElement.text());
+    place(thisElement.text());
 })
-
 
 
 
