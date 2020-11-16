@@ -10,9 +10,9 @@ A website that allows the user to see the last five days of the weather on Mars 
 * Bulma
 * Moment.js
 * jQuery
-* NASA - Mars Weather Forcast API
+* NASA - Mars Weather Forecast API
 * NASA - Mars Rover Photos API
-* Governemnt Weather Forecast API
+* Government Weather Forecast API
 
 ## Website
 https://mbogaert.github.io/mars-versus-earth-weather/
