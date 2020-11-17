@@ -10,7 +10,6 @@ var lat = ' ';
 var lon = ' ';
 var city = document.querySelector("#city");
 var searchHistoryEl = $(".historyItems");
-
 var info = document.querySelector("#info");
 var day1 = document.querySelector("#day1");
 var temp1 = document.querySelector("#temp1");
@@ -33,7 +32,7 @@ var cityWindSpeed;
 var where = [];
 var searchHistoryArr = JSON.parse(localStorage.getItem("searchHistory")) || [];
 
-
+// call the Mars weather API and display
 var getMarsWeather = function (data) {
     fetch("https://api.nasa.gov/insight_weather/?api_key=" + marsApiKey + "&feedtype=json&ver=1.0")
         .then(r => r.json())
@@ -42,22 +41,22 @@ var getMarsWeather = function (data) {
             for (let i = 0; i < data.sol_keys.length; i++) {
                 const key = data.sol_keys[i];
                 var idmodifier = i === 0 ? "" : i + 1
-    
+
                 $("#sol" + idmodifier).text("Sol " + key)
                 $("#date" + idmodifier).text(data[key].First_UTC)
                 if (data[key].AT) {
-                    $("#high" + idmodifier).text("High: " + Math.ceil(data[key].AT.mx * 9/5 + 32) + " °F");
-                    $("#low" + idmodifier).text("Low: " + Math.ceil(data[key].AT.mn * 9/5 + 32) + " °F");
+                    $("#high" + idmodifier).text("High: " + Math.ceil(data[key].AT.mx * 9 / 5 + 32) + " °F");
+                    $("#low" + idmodifier).text("Low: " + Math.ceil(data[key].AT.mn * 9 / 5 + 32) + " °F");
                 } else {
-                    $("#high" + idmodifier).text("High: " + Math.ceil(data[key].PRE.mx * 9/5 + 32) + " °F");
-                    $("#low" + idmodifier).text("Low: " + Math.ceil(data[key].PRE.mn * 9/5 + 32) + " °F")
+                    $("#high" + idmodifier).text("High: " + Math.ceil(data[key].PRE.mx * 9 / 5 + 32) + " °F");
+                    $("#low" + idmodifier).text("Low: " + Math.ceil(data[key].PRE.mn * 9 / 5 + 32) + " °F")
                 }
                 if (data[key].HWS) {
                     $("#wind-speed" + idmodifier).text("Wind Speed: " + Math.ceil(data[key].HWS.av));
 
                 }
             }
-   
+
         })
 }
 
@@ -117,7 +116,7 @@ function displayMarsPhotoTwo(photoDataTwo) {
     };
 };
 
-
+// fetch the open weather api to get the lat and lon for government api
 function place(cityName) {
 
     fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial&appid=6d5ccf5473302b19f719a739ab7ff1c2")
@@ -135,11 +134,12 @@ function place(cityName) {
 
             earthWeather(lat, lon)
         })
-
+        // catch error if they don't enter a city and display error modal
         .catch(error => showModal());
 
 }
 
+// fetch earth Weather API from government weather api
 function earthWeather(lat, lon) {
     fetch("https://api.weather.gov/points/" + lat + ',' + lon)
 
@@ -153,7 +153,7 @@ function earthWeather(lat, lon) {
                 .then(function (json) {
                     todayWeather = json
 
-                    
+
                     EarthCurrentWeather()
                     getMarsPhotos()
 
@@ -172,12 +172,12 @@ function showModal() {
 }
 
 // button to close the modal
-$(".modal-close").click(function() {
+$(".modal-close").click(function () {
     $(".modal").removeClass("is-active");
 })
 
 
-
+// displays current and five day earth forecast
 function EarthCurrentWeather() {
 
     city.innerText = where.city.name + "," + ' ' + todayWeather.properties.periods[0].name + " " + '(' + moment().format('ll') + ')'
@@ -201,9 +201,10 @@ function EarthCurrentWeather() {
     wind5.innerText = "Wind Speed:" + " " + todayWeather.properties.periods[10].windSpeed
 };
 
-search.onclick = function() {
+// search click 
+search.onclick = function () {
     var cityName = document.querySelector("#search").value;
-place(cityName)
+    place(cityName)
 }
 
 
@@ -216,7 +217,7 @@ $(document).on("click", ".historyEntry", function () {
 })
 
 
-
+// render localStorage on screen
 function renderSearchHistory() {
     searchHistoryEl.empty();
     for (var i = 0; i < searchHistoryArr.length; i++) {
@@ -227,5 +228,6 @@ function renderSearchHistory() {
 
 
 };
+
 renderSearchHistory();
 getMarsWeather();

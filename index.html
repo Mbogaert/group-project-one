@@ -14,7 +14,7 @@
     <header class="header-bar">
         <div id="navbar">
             <h1 class="mars">Martian Weather</h1>
-            <h1 class="vs">VS</h1>
+            <p class="vs">VS</p>
             <h1 class="earthling">Earthling Weather</h1>
         </div>
     </header>
@@ -124,16 +124,17 @@
             </div>
         </div>
 
-        <!-- Mars Photos -->
+        <!-- Mars Random Rover Photos -->
         <div class="columns" id="photo">
             <div class="column is-half">
                 <p class="photoHeader">Opportunity Rover<br>
                     Active from 2004 - 2018</p>
-                <img id="photoOne" src="./assets/images/opportunity-rover.jpg" alt="Opportunity Mars Rover Generated Image">
+                <img id="photoOne" src="./assets/images/opportunity-rover.jpg"
+                    alt="Opportunity Mars Rover Generated Image">
                 <p class="photoHeader">Generates a Front Hazard Camera Image</p>
             </div>
             <div class="column is-half">
-                <p class="photoHeader">Curiosity Rover<br> 
+                <p class="photoHeader">Curiosity Rover<br>
                     Active from 2012 - Current</p>
                 <img id="photoTwo" src="./assets/images/curiosity-rover.jpg" alt="Curiosity Mars Rover Generated Image">
                 <p class="photoHeader">Generates a Mast Camera Image</p>
@@ -147,31 +148,30 @@
             <!-- Earth Weather Header-->
             <h1 class="is-size-1">Earth</h1>
         </div>
-        
+
         <!-- Input and button for search -->
-        <div class="columns earth">
-            <input class="input column is-one-quarter" type="text" id="search" placeholder="Text input">
+        <div class="columns" id="history">
+            <input class="input column is-one-quarter" type="text" id="search" placeholder="Enter USA City Name">
             <button class="button is-link column is-1" id="location">Submit</button>
             <div class="historyItems is-5"></div>
         </div>
-
+        <!-- Modal if your city input generates an error -->
         <div class="modal">
             <div class="modal-background"></div>
             <div class="modal-content">
-              Error: Please type in a city in the United States of America.
+                Error: Please type in a city in the United States of America.
             </div>
             <button class="modal-close is-large" aria-label="close"></button>
-          </div>
+        </div>
 
         <!-- Current weather -->
         <div class="columns current forecast-card" id="current-weather">
-            <div class="column is-one-fifth forecast-item" id="city">Todays Weather</div>
-            <div class="column is-one-fifth forecast-item" id="temp"></div>
-            <div class="column is-one-fifth forecast-item" id="wind"></div>
-            <p class="column is-two-fifth forecast-item" id="info"></p>
-            <!--<div class="column is-one-fifth"></div>-->
+            <div class="column is-one-fifth" id="city">Todays Weather</div>
+            <div class="column is-one-fifth" id="temp"></div>
+            <div class="column is-one-fifth" id="wind"></div>
+            <p class="column is-two-fifth" id="info"></p>
         </div>
-        
+
         <!-- 5 Day Forecast Section-->
         <div class="columns">
             <div class="column is-one-fifth">
